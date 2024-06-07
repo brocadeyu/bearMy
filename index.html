@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/bear.svg" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>熊熊工具</title>
+    <script type="module" crossorigin src="/assets/index-C1XWe7Jw.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DvGbovLi.css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <style>
+    :root {
+      --vh: 100%; /* 默认值，防止未定义时出错 */
+    }
+
+    #app {
+      width: 100vw; /* 宽度为视口宽度的 100% */
+      height: calc(var(--vh, 1vh) * 100); /* 高度根据动态计算的视口高度调整 */
+      background-color: lightblue;
+    }
+  </style>
+  <script>
+    function setVh() {
+      let vh = window.innerHeight * 0.01
+      let vw = window.innerWidth * 0.01
+      window._vh = vh
+      window._vw = vw
+      document.documentElement.style.setProperty('--vh', `${vh}px`)
+    }
+    window.addEventListener('resize', setVh)
+    window.addEventListener('orientationchange', setVh)
+    setVh() // 初始调用，设置变量值
+  </script>
+</html>
